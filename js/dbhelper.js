@@ -9,7 +9,7 @@ class DBHelper {
   static get DATABASE_URL() {
     const port = 8000; // Change this to your server port
     const localhostURL = `http://localhost:${port}/data/restaurants.json`;
-    const awsURL = `http://34.220.179.68/data/restaurants.json`;
+    const awsURL = `https://dmiwebtree.com/data/restaurants.json`;
     return awsURL;
   }
 
