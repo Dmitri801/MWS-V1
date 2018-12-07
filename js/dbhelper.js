@@ -8,7 +8,9 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000; // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    const localhostURL = `http://localhost:${port}/data/restaurants.json`;
+    const awsURL = `http://34.220.179.68/data/restaurants.json`;
+    return awsURL;
   }
 
   /**
@@ -31,21 +33,6 @@ class DBHelper {
       }
     };
     xhr.send();
-  }
-
-  // Database Fetch
-  static fetchRestaurantsFromDb() {
-    fetch("http://localhost:1337/restaurants")
-      .then(res => res.json())
-      .then(data => data);
-  }
-
-  static fetchRestaurantsFromDbByCuisine(cuisine, callback) {
-    DBHelper.fetchRestaurantsFromDb((error, restaurants) => {
-      if (error) return error;
-      const results = restaurants.filter(r => r.cuisine_type == cuisine);
-      callback(null, results);
-    });
   }
 
   /**
